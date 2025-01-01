@@ -1,0 +1,35 @@
+.todo-list {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+.todo-list form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-list input {
+  flex: 1;
+  padding: 8px;
+}
+
+.todo-list button {
+  padding: 8px 16px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+} 

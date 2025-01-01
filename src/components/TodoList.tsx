@@ -171,6 +171,22 @@ class TodoList extends Component<Record<never, never>, TodoListState> {
     }
   };
 
+  handleAddTodo = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!this.state.newTodoText.trim()) return;
+
+    const newTodo: Todo = {
+      id: Date.now(),
+      title: this.state.newTodoText,
+      completed: false
+    };
+
+    this.setState(prevState => ({
+      todos: [...prevState.todos, newTodo],
+      newTodoText: ''
+    }));
+  };
+
   render() {
     const filteredTodos = this.getFilteredTodos();
 
@@ -181,7 +197,7 @@ class TodoList extends Component<Record<never, never>, TodoListState> {
             <input
               type="text"
               value={this.state.newTodoText}
-              onChange={this.handleInputChange}
+              onChange={(e) => this.setState({ newTodoText: e.target.value })}
               placeholder="새로운 할일을 입력하세요"
             />
           </form>

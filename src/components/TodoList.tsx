@@ -155,6 +155,22 @@ class TodoList extends Component<Record<never, never>, TodoListState> {
       );
   };
 
+  fetchTodos = async () => {
+    this.setState({ isLoading: true });
+
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/todos');
+      const data = await response.json();
+      this.setState({ 
+        todos: data.slice(0, 10),
+        isLoading: false
+      });
+    } catch (error) {
+      console.error('Error fetching todos:', error);
+      this.setState({ isLoading: false });
+    }
+  };
+
   render() {
     const filteredTodos = this.getFilteredTodos();
 
